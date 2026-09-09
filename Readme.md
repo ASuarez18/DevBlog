@@ -1,5 +1,8 @@
 # Next.js + Contentful Blog Assignment
 
+## URL
+#### [DevBlog](https://dev-blog-nu-roan.vercel.app/)
+
 ## Objective
 Build a responsive blog application using the Next.js App Router and Contentful CMS. 
 
