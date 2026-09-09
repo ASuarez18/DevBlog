@@ -1,5 +1,4 @@
 import { getBlogPosts } from "@/lib/contentful";
-import Navbar from "./components/Navbar";
 import BlogCard from "./components/BlogCard";
 
 export default async function HomePage() {
@@ -7,10 +6,8 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-black-one text-gray-100">
-      <Navbar />
-
       <main className="max-w-6xl mx-auto px-6 py-12">
-        <section className="mb-12 text-center sm:text-left space-y-3">
+        <section className=" text-center sm:text-left space-y-3">
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-blue-main">
             Some Web Dev Insights
           </h1>
@@ -19,7 +16,7 @@ export default async function HomePage() {
           </p>
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6">
           {posts.map((post) => (
             <BlogCard key={post.sys.id} post={post} />
           ))}
