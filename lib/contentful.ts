@@ -41,9 +41,6 @@ export interface BlogPostSkeleton extends EntrySkeletonType {
   fields: BlogPostFields;
 }
 
-/**
-  Obtiene todas las publicaciones ordenadas por fecha de publicación descendente.
- */
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const query: EntriesQueries<BlogPostSkeleton, undefined> & { order?: string[] } = {
     content_type: "blogPost",
@@ -53,9 +50,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
   const response = await client.getEntries<BlogPostSkeleton>(query);
   return response.items as unknown as BlogPost[];
 }
-/**
-  Obtiene una publicación específica utilizando su ID único de Contentful (sys.id).
- */
+
 export async function getBlogPostById(id: string): Promise<BlogPost | null> {
   try {
     const entry = await client.getEntry<BlogPostSkeleton>(id);
@@ -66,9 +61,6 @@ export async function getBlogPostById(id: string): Promise<BlogPost | null> {
   }
 }
 
-/**
-  Obtiene una publicación específica mediante su slug (útil para rutas dinámicas como /blog/[slug]).
- */
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   const query: Record<string, unknown> = {
     content_type: "blogPost",
