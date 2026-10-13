@@ -1,6 +1,8 @@
 import { getBlogPosts } from "@/lib/contentful";
 import BlogCard from "./components/BlogCard";
 
+export const revalidate = 60;
+
 export default async function HomePage() {
   const posts = await getBlogPosts();
 
